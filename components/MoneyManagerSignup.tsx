@@ -239,43 +239,43 @@ const selectedCountry = countryOptions.find(
       body: emailBody,
     };
 
-    fetch("http://118.139.165.198:5002/api/Stonefort/send-email", {
+fetch("/api/send-email", {
   method: "POST",
   headers: {
-    Accept: "*/*",
     "Content-Type": "application/json",
-    "X-Api-Key": "stonefortkey2025",
   },
   body: JSON.stringify(apiBody),
 })
-  .then(async (res) => {
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`Email API failed: ${text}`);
-    }
+.then(async (res) => {
+  if (!res.ok) {
+    const data = await res.json().catch(() => null);
+    const msg = data?.error || "Email failed";
+    throw new Error(msg);
+  }
 
-    alert("✅ Email sent successfully!");
+  alert("✅ Email sent successfully!");
 
-    // 🧹 reset all form fields
-    reset({
-      firstName: "",
-      lastName: "",
-      email: "",
-      country: "ae",   // default again
-      phoneRaw: "",
-      phoneE164: "",
-    });
+  // 🧹 reset all form fields
+  reset({
+    firstName: "",
+    lastName: "",
+    email: "",
+    country: "ae",   // default again
+    phoneRaw: "",
+    phoneE164: "",
+  });
 
-    // clear phone UI + flag
-    if (inputRef.current) {
-      inputRef.current.value = "";
-    }
-    if (itiRef.current) {
-      try {
-        itiRef.current.setCountry("ae");
-      } catch {}
-    }
-  })
+  // clear phone UI + flag
+  if (inputRef.current) {
+    inputRef.current.value = "";
+  }
+  if (itiRef.current) {
+    try {
+      itiRef.current.setCountry("ae");
+    } catch {}
+  }
+})
+
   .catch((err) => {
     console.error("❌ Email API error:", err);
     alert("Something went wrong while sending the email.");
