@@ -12,7 +12,7 @@ export default function LoyaltyHeroWithIntro() {
   {/* FULL-WIDTH RIGHT IMAGE */}
   <div className="absolute inset-0 right-0 w-full">
     <Image
-      src="/images/loyalty-hero.webp"
+      src="/images/Loyalty-hero.webp"
       alt=""
       fill
       priority
