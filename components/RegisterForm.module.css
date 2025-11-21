@@ -1,0 +1,178 @@
+/* Ensure the intl-tel-input flag and dropdown render correctly */
+.phone {
+  padding-left: 52px !important;
+}
+
+/* Make the wrapper stretch full width */
+.phone :global(.iti) {
+  width: 100%;
+}
+
+/* Ensure country dropdown appears above card */
+.phone :global(.iti__country-list) {
+  z-index: 10000;
+  background: #000000;
+}
+
+/* Section */
+.wrap{
+  background:#fff;           
+  padding:56px 0 72px;
+  color:#0B1220;
+}
+.inner{
+  width:min(1100px, 92%);
+  margin:0 auto;
+  text-align:center;
+}
+.title{
+  margin:0 0 24px;
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.1;
+  font-size: clamp(28px, 4.2vw, 55px);
+}
+
+/* Card */
+.card{
+  background:#000;           /* black card */
+  color:#fff;
+  border-radius:16px;
+  padding:28px;
+  text-align:left;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* grid */
+.grid3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:28px;
+  margin-top: 18px;
+}
+.fullRow{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+
+/* labels + inputs (thin underline) */
+.groupLabel{ color:#cbd5e1; font-size:14px; margin-bottom:8px; }
+.field label{ color:#cbd5e1; font-size:14px; display:block; margin-bottom:8px; }
+
+.field input,
+.field select{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,.25);
+  color:#fff;
+  padding:10px 2px 10px 2px;
+  outline:none;
+}
+
+
+.phoneBox :global(.iti__country-list) {
+  z-index: 10000;
+  background: #0B1220 !important;   /* dark dropdown */
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.phoneBox :global(.iti__country.iti__highlight) {
+  background: rgba(255,255,255,.06) !important;  /* light hover */
+}
+
+.field textarea{
+  background:#1e293b; border:1px solid rgba(255,255,255,.12);
+  border-radius:4px; padding:12px; ;
+ 
+}
+.field input::placeholder,
+.field textarea::placeholder{ color:rgba(255,255,255,.45); }
+
+
+
+
+/* react-select overrides */
+.rs__control{
+  background:transparent !important;
+  border: none !important;
+  border-bottom:1px solid rgba(255,255,255,.25) !important;
+  border-radius:0 !important;
+  min-height:42px !important;
+}
+.rs__single-value{ color:#fff !important; }
+.rs__menu{ color:#0B1220 !important; }
+.rs__placeholder{ color:rgba(255,255,255,.45) !important; }
+.rs__indicator-separator{ display:none !important; }
+
+/* intl-tel-input input extra padding so flags don’t sit on underline */
+.phone{ padding-left: 92px !important; }
+
+/* radio group */
+.radioRow{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+
+.radio{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-right:18px; color:#e5e7eb; font-size:14px;
+}
+.radio input{ accent-color:#00D3C6; }
+
+.selectWrap { position: relative; }
+.selectBare {
+  -webkit-appearance:none; -moz-appearance:none; appearance:none;
+  padding-right: 28px;   /* space for caret */
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  padding-top: 10px; padding-bottom: 10px;
+  outline: none;
+}
+
+.selectBare option {
+  background: #0B1220 !important;   /* dark background */
+  color: #fff !important;
+}
+.selectCaret{
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255,255,255,.6);
+  line-height: 1;
+}
+
+
+/* errors */
+.err{ display:block; color:#ef4444; font-size:12px; margin-top:6px; }
+
+/* actions */
+.actions{ margin-top:22px; }
+.cta{
+  width:100%;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:#00D3C6; color:#0B1220; font-weight:600;
+  padding:16px; border-radius:4px; border:none; cursor:pointer;
+}
+.cta:disabled{ opacity:.6; cursor:not-allowed; }
+.paperPlane{ transform:translateY(1px); }
+
+@media (max-width: 900px){
+  .grid3{ grid-template-columns:1fr; }
+}
+
+.subtitle {
+  margin: -6px 0 22px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  color: #000;
+}

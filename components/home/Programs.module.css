@@ -1,0 +1,187 @@
+/* ===== Programs (exact 550x417 cards, centered layout) ===== */
+
+.section {
+  --bg: #000;
+  --teal: #00d3c6;
+  --ink-dark: #0b1220;
+  --ink: #000000;
+  --muted: #4a4a4a;
+
+  background: var(--bg);
+  padding: clamp(40px, 8vw, 96px) 16px 72px;
+}
+
+.container { max-width: 1220px; margin: 0 auto; }
+
+/* Heading (matches page style) */
+.heading {
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4.2vw, 55px);
+  text-align: center;
+  line-height: 1.06;
+  letter-spacing: .2px;
+  margin: 0 auto clamp(28px, 5vw, 44px);
+  color: #fff;
+}
+.accent { color: var(--teal); }
+
+/* Grid: 2 columns, third centered below */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 550px);
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Card frame */
+.card {
+  position: relative;
+  width: 550px;
+  height: 417px;
+  border-radius: 24px;
+  background: #f1f3f3;             /* soft light background like screenshot */
+  box-shadow: 0 16px 48px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+/* Third card on its own row, centered */
+.cardCenter {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+/* Ribbon centered at top */
+.ribbon {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 44px;
+  padding: 0 22px;
+  background: var(--teal);
+
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  line-height: 1.2;
+  justify-content: center;
+}
+.ribbonText {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+
+/* Inner content */
+.inner {
+  height: 100%;
+  padding: 96px 28px 26px; /* room for ribbon */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title and copy match screenshot spacing */
+.title {
+  margin: 0 0 16px;
+  color: var(--ink);
+  line-height: 28px;
+  font-weight: 600;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: .2px;
+}
+.body {
+  margin: 0 0 28px;
+  color: #000;
+  font-size: clamp(14px, 1.6vw, 20px);
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  line-height: 28px;
+  max-width: 460px;   
+}
+
+/* CTAs centered */
+.ctaRow {
+  margin-top: auto;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform .15s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  border: 1.5px solid transparent;
+}
+.btnPrimary {
+  background: var(--teal);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.22);
+}
+.btnPrimary:hover { 
+  transform: translateY(-1px);
+  background: #fff;
+  border: 1px solid #00d3c6;
+  color: #000;
+}
+
+.btnGhost {
+  background: transparent;
+  border: 1px solid #00d3c6;
+  color: #00d3c6;
+}
+.btnGhost:hover {
+  background: #00d3c6;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+
+/* Responsive: stack but keep card size cap */
+@media (max-width: 1160px) {
+  .grid { grid-template-columns: 1fr; }
+  .card, .cardCenter {
+    width: min(550px, 100%);
+    justify-self: center;
+  }
+}
+
+/* ===== Mobile — shrink both CTA buttons (same style as before) ===== */
+@media (max-width: 640px) {
+  .ctaRow {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .btn {
+    height: 44px;          /* ↓ smaller height */
+    padding: 0 14px;       /* ↓ reduce side padding */
+    font-size: 15px;       /* ↓ smaller font */
+    flex: 1 1 auto;        /* Allow both to share space */
+    width: auto;           /* No fixed width */
+    white-space: nowrap;   /* Prevent text wrap */
+  }
+
+  .btnPrimary {
+    min-width: 130px;      /* ↓ shrink button width */
+  }
+
+  .btnGhost {
+    min-width: 120px;      /* Slightly smaller ghost button */
+  }
+}
+

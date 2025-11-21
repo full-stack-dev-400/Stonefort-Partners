@@ -1,0 +1,60 @@
+/* ===== Section ===== */
+.wrap {
+  background: #000;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* ===== Container ===== */
+.inner {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  margin-top: 220px;
+}
+
+/* ===== Heading ===== */
+.title {
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4.2vw, 55px);
+  margin: 0 0 20px;
+}
+
+.teal {
+  color: #00d3c6;
+}
+
+/* ===== Paragraph ===== */
+.text {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.8;
+  max-width: 1050px;
+  color: #fff;
+  margin: 0 auto 50px;
+  opacity: 0.9;
+}
+
+/* ===== Image ===== */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+.inner {
+ 
+  margin-top: 60px;
+}
+}

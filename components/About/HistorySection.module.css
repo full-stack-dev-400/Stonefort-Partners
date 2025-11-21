@@ -1,0 +1,48 @@
+.wrap{
+  --sf-bg:#000000;
+  --sf-accent:#00D3C6;
+
+  background: var(--sf-bg);
+  color: #fff;
+  padding: 72px 0 96px;
+}
+
+.inner{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* Centered heading with teal accent */
+.title{
+  margin: 0 0 36px 0;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 4.2vw, 55px);
+  line-height: 1.2;
+  letter-spacing: .2px;
+}
+.titleDim{ color:#fff; opacity:.9; }
+.titleAccent{ color: var(--sf-accent); }
+
+/* Body copy block */
+.copy{
+  margin-top: 8px;
+  display: grid;
+  gap: 22px;            /* space between paragraphs like screenshot */
+}
+
+.p{
+  margin: 0;
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  line-height: 1.85;
+  color: rgba(255,255,255,.86);
+  text-wrap: pretty;
+}
+
+@media (max-width: 560px){
+  .wrap{ padding: 56px 0 80px; }
+  .title{ margin-bottom: 28px; }
+  .copy{ gap: 18px; }
+}

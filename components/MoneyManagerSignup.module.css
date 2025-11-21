@@ -1,0 +1,278 @@
+/* ===========================
+   Layout
+   =========================== */
+
+.section {
+  background: #000000; 
+  color: #ffffff;
+  padding: 80px 0 96px;
+}
+
+.inner {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr); /* LEFT BIGGER */
+  gap: 72px;
+  align-items: flex-start;
+}
+
+
+/* ===========================
+   Left content (headline + copy)
+   =========================== */
+
+.content {
+  max-width: 620px;
+}
+
+.heading {
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  font-size: 70px;
+}
+
+.headingLine {
+  display: block;
+}
+
+.headingHighlight {
+  display: block;
+  color: #00e5d4; /* teal word “Money manager” */
+}
+
+.lead {
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+  max-width: 540px;
+
+  
+}
+.leadp {
+  margin-top: 20px;
+}
+
+/* Benefits list */
+
+.benefits {
+  margin-top: 8px;
+  margin-top: 60px;
+}
+
+.benefitsTitle {
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+/* new bullet layout using tick-square icon */
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns */
+  column-gap: 56px;
+  row-gap: 22px;
+}
+
+.benefitsItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 18px;
+  color: #fff;
+}
+
+.bulletIcon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+/* make sure the icon fills the square nicely */
+.bulletIcon :global(img),
+.bulletIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===========================
+   Right side form
+   =========================== */
+
+.formWrap {
+  background: #ffffff; /* white card like the screenshot */
+  border-radius: 4px;
+  padding: 24px 24px 28px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  color: #111827;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+
+.label {
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+/* Inputs – flat white style */
+
+.input {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #f9f9f9;
+  color: #111827;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  border-color: #00e5d4;
+  box-shadow: 0 0 0 1px rgba(0, 229, 212, 0.28);
+  background: #ffffff;
+}
+
+/* Phone field (intl-tel-input) */
+
+.phoneBox {
+  width: 100%;
+}
+
+.phone {
+  padding-left: 60px; /* space for ITI dial-code area */
+}
+
+/* Error text */
+
+.err {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+/* Submit button */
+
+.submit {
+  margin-top: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 0; /* square like screenshot */
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  background: #00e5d4; /* teal strip */
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.submit:hover {
+  background: #00d4c6;
+}
+
+.submit:active {
+  transform: translateY(1px);
+}
+
+.submitIcon {
+  font-size: 14px;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heading {
+    font-size: 40px;
+  }
+
+  .formWrap {
+    padding: 20px 18px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+ .section {
+    padding: 56px 16px 72px; /* ADDED LEFT & RIGHT PADDING */
+  }
+
+  .inner {
+    padding: 0 10px; /* EXTRA SAFE SIDE PADDING */
+  }
+
+  .content {
+    padding: 0 10px; /* LEFT CONTENT PADDING */
+  }
+
+  .formWrap {
+    padding: 20px 16px 24px; /* FORM PADDING MATCHING MOBILE UI */
+  }
+
+  .heading {
+    font-size: 34px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .benefitsList {
+    grid-template-columns: 1fr;
+  }
+}

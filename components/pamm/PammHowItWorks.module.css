@@ -1,0 +1,154 @@
+/* Section */
+.wrap {
+  background: #000;
+  color: #fff;
+  padding: 100px 0;
+}
+.inner {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title */
+.title {
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(30px, 5.6vw, 64px);
+  margin: 0 0 34px;
+}
+.teal { color: #00d3c6; }
+
+/* Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.9fr 1.05fr; /* similar proportions to mock */
+  align-items: center;
+  gap: 24px;
+}
+
+/* Left image */
+.left {
+  display: flex;
+  justify-content: center;
+}
+.leftImg {
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  display: block;
+}
+
+/* Center art + caption */
+.center {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+.centerImg {
+  width: 100%;
+  height: auto;
+  max-width: 340px;
+}
+.capWrap { text-align: center; }
+.capTop {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 18px;
+  opacity: 0.95;
+}
+.capBold {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Right bracket list */
+.right {
+  display: grid;
+  justify-items: start;
+  gap: 22px;
+}
+
+/* Bracket column */
+.bracket {
+  position: relative;
+  padding-left: 24px;   /* space for bracket */
+  width: 100%;
+  max-width: 420px;
+}
+.bracket::before {
+  /* vertical bracket line */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: #ffffff;
+  opacity: 1; /* solid line */
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #ffffff;
+}
+.row:last-child { border-bottom: 0; }
+
+.name {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 18px;
+}
+.amt {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* subtle dim for perf fee label (keep solid white text if you prefer) */
+.dim .name,
+.dim .amt { opacity: 0.9; }
+
+/* Profit tag block */
+.profitBlock {
+  text-align: left;
+  margin-left: 24px; /* align with bracket content */
+}
+.profitLabel {
+  font-family: "Poppins", system-ui, sans-serif;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.profitTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #12e6b1; /* vibrant green like mock */
+}
+.profitTag > span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: #12e6b1;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .right { justify-items: center; }
+  .bracket, .profitBlock { margin-left: 0; }
+  .bracket { max-width: 560px; }
+}
+@media (max-width: 560px) {
+  .row { padding: 14px 0; }
+  .name, .amt { font-size: 16px; }
+  .profitTag { font-size: 20px; }
+}

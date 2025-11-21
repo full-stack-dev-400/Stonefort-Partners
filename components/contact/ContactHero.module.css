@@ -1,0 +1,142 @@
+
+
+.wrap{
+  position:relative;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+  /* give space so text never sits inside the curve */
+  padding: 110px 0 220px;               
+}
+
+/* GRID */
+.inner{
+  width:min(1200px,92%);
+  margin:0 auto;
+  min-height:520px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  align-items:center;
+  position:relative;
+  z-index:2;                           
+}
+
+/* LEFT TEXT */
+.copy{ max-width:640px; }
+
+.title{
+  font-family:"Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight:500;
+  font-size: clamp(42px, 5.4vw, 80px);  
+  line-height:1.05;
+  margin:0 0 14px;
+}
+
+.rule{
+  display:block;
+  width:370px;
+  height:2px;
+  background:#ffffff;
+  opacity:.22;                          
+  margin: 6px 0 22px;
+}
+
+.subtitle{
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height:1.7;
+  color:#fff;
+  max-width:560px;
+}
+
+/* RIGHT LOGO (bleeds off the right like the SS) */
+.logoWrap{
+  position:absolute;
+  top:0;
+  bottom:-90px;
+  right:30px;                         
+  width: 60vw;                           
+  min-width:560px;
+}
+
+.logo{
+  object-fit:contain;
+  object-position:right bottom;
+}
+
+/* PERFECT BOTTOM CURVE */
+.curve{
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  transform:translateX(-50%);
+  width: 140vw;                          /* extra wide to feel “infinite” */
+  height: 34vw;                          /* controls arc height */
+  pointer-events:none;
+  z-index: 333;                             /* below the content grid */
+}
+
+.curveSvg{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  height:100%;
+  display:block;
+  fill:#efefef;                         
+  z-index: 333;
+}
+
+/* ---------- Tablet & down ---------- */
+@media (max-width: 1024px) {
+  .inner{
+    grid-template-columns: 1fr;   /* 1 column */
+    justify-items: center;        /* center grid items */
+    text-align: center;
+    min-height: auto;
+  }
+
+  /* Reset ALL desktop logo constraints that cause overflow */
+  .logoWrap{
+    position: relative;
+    right: auto;                  /* <-- undo right:30px */
+    bottom: -40px;                /* dip into the curve */
+    width: clamp(220px, 40vw, 360px);
+    height: clamp(220px, 40vw, 360px); /* needed for Image fill */
+    min-width: 0;                 /* <-- VERY important (undo 560px) */
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .logo{
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  /* Center the text block and its bits */
+  .copy{
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 16px;
+    justify-self: center;
+  }
+
+  .rule{
+    width: 190px;
+    margin: 8px auto 22px;        /* centered divider */
+  }
+
+  .subtitle{
+    max-width: 36ch;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- Mobile tweaks (optional finer control) ---------- */
+@media (max-width: 860px){
+  .curve{ height: 42vw; z-index: 333; }
+  .wrap{  padding-bottom: 40px; }
+  .logoWrap { margin-top: 30px;}
+}

@@ -1,0 +1,74 @@
+.sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  pointer-events: auto;
+
+  /* full-width gradient background */
+  background: rgba(11, 15, 23, 0.92);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+
+  /* spacing for content inside */
+  padding: 6px 0;
+}
+
+/* remove width restriction */
+.inner {
+  width: 100%; /* full width now */
+  margin: 0;
+  position: relative;
+  padding-right: 66px; /* space for buttons */
+}
+
+/* Controls (collapse / close) */
+.controls {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.ctrlBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e9feff;
+  font-size: 12px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ctrlBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Collapsed state */
+.collapsed {
+  padding: 0;
+}
+.collapsed .inner {
+  padding-right: 66px;
+}
+.collapsed .tradingview-widget-container {
+  height: 28px;
+  overflow: hidden;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .inner {
+    width: 100%;
+    padding-right: 58px;
+  }
+  .ctrlBtn {
+    padding: 5px 7px;
+    font-size: 11px;
+  }
+}

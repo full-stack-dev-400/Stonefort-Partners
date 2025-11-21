@@ -1,0 +1,156 @@
+/* =============================
+   Section & Layout
+============================= */
+.wrap {
+  background: #000;
+  color: #eaf1f5;
+  padding: 64px 0 40px;
+}
+
+.inner {
+  width: min(1150px, 92%);
+  margin: 0 auto;
+}
+
+/* =============================
+   Grid with shared dividers
+============================= */
+
+/* ===== Section Heading ===== */
+.heading {
+  text-align: center;
+  font-size: clamp(32px, 4vw, 55px);
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 64px;
+  letter-spacing: -0.3px;
+}
+
+.heading span {
+  color: #00d3c6; /* Stonefort teal */
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  gap: 0; /* we’ll control spacing inside .item */
+  border-collapse: collapse;
+}
+
+/* horizontal divider between rows */
+.grid::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  transform: translateY(-0.5px);
+}
+
+/* vertical divider between columns */
+.grid::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: #fff;
+  transform: translateX(-0.5px);
+}
+
+/* =============================
+   Item (Card)
+============================= */
+.item {
+  padding: 40px;
+  border-radius: 0; /* no rounding—keeps divider clean */
+  transition: all 0.3s ease;
+}
+
+/* Hover: background flips white, text dark */
+.item:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+  z-index: 2; /* lift above divider */
+  position: relative;
+  box-shadow: 0 0 0 1px #000 inset; /* outline for hover */
+}
+
+.item:hover .h3 { color: #000; }
+.item:hover .text { color: #333; }
+
+.item:hover .tick {
+  filter: drop-shadow(0 0 6px rgba(0, 211, 198, 0.45));
+  transform: scale(1.05);
+}
+
+/* =============================
+   Inner text styling
+============================= */
+.rowHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tick {
+  width: 24px;
+  height: 24px;
+}
+
+.h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #eaf1f5;
+ 
+}
+
+.text {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* =============================
+   Stage Image
+============================= */
+.stage {
+  display: grid;
+  place-items: center;
+  margin-top: 36px;
+}
+
+.stage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* =============================
+   Responsive
+============================= */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .grid::before,
+  .grid::after {
+    display: none;
+  }
+  .item {
+    padding: 32px 24px;
+  }
+  .h3 { font-size: 17px; }
+  .text { font-size: 14px; }
+}

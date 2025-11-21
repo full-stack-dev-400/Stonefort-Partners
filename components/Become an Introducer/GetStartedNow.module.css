@@ -1,0 +1,134 @@
+/* ===== Section ===== */
+.wrap {
+  background: #000;                 /* matches your dark sections */
+  color: #fff;
+  padding: 72px 0 88px;
+}
+
+.inner {
+  width: min(1150px, 92%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ===== Typography (as requested) ===== */
+/* Heading: Cirka Semibold 55px (fallbacks if not loaded) */
+.title {
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;                 /* Semibold */
+  font-size: 55px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin: 0 0 10px;
+}
+
+/* Subheading: Poppins 20px regular */
+.subtitle {
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 850px;
+  margin: 0 auto 36px;
+  color: #fff;                   /* light slate-teal for readability on black */
+}
+
+/* ===== Steps grid ===== */
+.grid3 {
+  list-style: none;
+  margin: 28px auto 32px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 160px 1fr 160px 1fr; /* 3 steps + 2 connectors */
+  align-items: start;
+  justify-items: center;
+}
+
+/* Step item */
+.step {
+  position: relative;
+  text-align: center;
+}
+
+
+
+/* Icon box (59x95 image centered) */
+.iconWrap {
+  width: 59px;
+  height: 95px;
+  margin: 18px auto 12px;
+  display: grid;
+  place-items: center;
+}
+.icon { width: 59px; height: 95px; }
+
+/* Step title: Poppins 24px Semibold */
+.stepTitle {
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  font-size: 24px;
+  font-weight: 600;                 /* Semibold */
+  margin: 8px 0 6px;
+}
+
+/* Step text: Poppins 16px regular */
+.stepText {
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #fff;
+  
+  margin: 0 auto;
+}
+
+/* Dotted connectors between steps */
+.connector {
+  align-self: center;
+  width: 100%;
+  height: 2px;
+  background-image: radial-gradient(#00d3c6 1px, transparent 1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  opacity: 2;
+}
+
+/* CTA */
+.ctaRow {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+}
+.primaryBtn {
+  background: #00d3c6;
+  color: #000;
+  padding: 14px 24px;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 8px 28px rgba(0, 211, 198, 0.25);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.primaryBtn:hover { 
+  transform: translateY(-1px); 
+  opacity: .95;
+  background: #fff;
+  color: #00d3c6;
+ }
+ 
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .title { font-size: 44px; }
+  .subtitle { font-size: 18px; }
+  .grid3 { grid-template-columns: 1fr; row-gap: 26px; }
+  .connector { display: none; }
+
+}
+
+@media (max-width: 640px) {
+  .title { font-size: 36px; }
+  .subtitle { font-size: 16px; }
+  .stepTitle { font-size: 20px; }
+  .stepText { font-size: 15px; }
+}

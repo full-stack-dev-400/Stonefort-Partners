@@ -1,0 +1,158 @@
+/* ===== Section base (light gray background to match your SS) ===== */
+.wrap{
+  background:#efefef;
+  padding: 0 0 72px;
+  color:#0B1220;
+
+}
+
+.inner{
+  width:min(1160px, 92%);
+  margin:0 auto;
+  margin-top: -20px;
+  z-index: 999 !important;
+}
+
+/* ===== Headline ===== */
+.title{
+  text-align:center;
+  margin: 0 0 10px;
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4.8vw, 52px);
+  letter-spacing: -0.2px;
+}
+
+.emBlack{ color:#0B1220; }
+.emTeal{ color:#00D3C6; }
+
+.kicker{
+  text-align:center;
+  margin: 4px 0 18px;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 18px;
+}
+
+.hr{
+  display:block;
+  width: 420px;
+  height: 1px;
+  background: rgba(0,0,0,.22);
+  margin: 10px auto 24px;
+}
+
+/* lead paragraph */
+.lead{
+  margin: 0 auto 38px;
+  text-align:center;
+  max-width: 920px;
+  line-height: 1.8;
+  font-size: 18px;
+  color:#000;
+}
+
+/* ===== Grid ===== */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* ===== Cards ===== */
+.card{
+  background:#fff;
+  border-radius: 10px;
+  border:1px solid rgba(0,0,0,.25);
+  padding: 42px 38px 28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: space-between;
+  max-height: 370px;
+}
+
+.cardOffice {
+  position: relative;
+  background: #fff; /* pure white base */
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;          /* center vertically */
+  justify-content: center;      /* center horizontally */
+  text-align: left;
+  padding: 40px 32px;
+}
+.cardOffice::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/contactbg.png") center/cover no-repeat;
+  opacity: 0.15;                /* faint background */
+  z-index: 0;
+}
+
+
+.officeContent{ width:100%; }
+.officeTitle{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0 0 14px;
+}
+
+.meta{ display:grid; gap:10px; }
+.metaRow{
+  display:flex; align-items:center; gap:10px;
+  font-size:18px;
+}
+.icon{ color:#0B1220; flex:0 0 auto; }
+.link{
+  color:#0B1220; text-decoration:none;
+}
+.link:hover{ text-decoration:underline; }
+
+/* QR area (centered, exact visual spacing like SS) */
+.qrBox{
+  display:flex; align-items:center; justify-content:center;
+  width:100%;
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+
+/* CTA */
+.cta{
+  margin-top: auto;
+  background:#00D3C6;
+  color:#fff;
+  border:0;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cta:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,211,198,.25); }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px){
+  .grid{ gap:28px; }
+}
+
+@media (max-width: 860px){
+    .inner{
+
+  margin-top: 0px;
+
+}
+  .lead{ max-width: 58ch; font-size: 16px; }
+  .hr{ width: 240px; }
+
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .card{ min-height: 0; }
+  .cardOffice{ align-items:flex-start; }
+}

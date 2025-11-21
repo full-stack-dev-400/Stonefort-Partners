@@ -1,0 +1,88 @@
+/* ===== Stats Strip ===== */
+
+.section {
+  background: #000; /* dark backdrop behind all cards */
+  padding: 60px 16px;
+  display: flex;
+  justify-content: center;
+  margin-top: -120px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Each stat card */
+.card {
+  position: relative;
+  width: 236px;
+  height: 94px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1c2a2f 0%, #0b1418 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  color: #fff;
+  isolation: isolate;
+}
+
+/* Background watermark */
+.wmImg {
+  object-fit: cover;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Text wrap */
+.textWrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Label text */
+.label {
+  font-weight: 500;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  color: #fff;
+
+  line-height: 28px;
+  margin-bottom: 2px;
+}
+
+/* Value text */
+.value {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .row {
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .card {
+    width: calc(50% - 12px); /* ← 2 cards per row, with gap */
+    height: 86px;
+    padding: 0 14px;         /* adjust spacing inside if needed */
+  }
+
+  .label {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .value {
+    font-size: 17px;
+  }
+}

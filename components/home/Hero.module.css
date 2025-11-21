@@ -1,0 +1,152 @@
+/* ===========================
+   Hero Styles (Glow BG Fixed Width)
+   =========================== */
+
+.wrap {
+  --bg: #000000;
+  --ink: #EAF7F7;
+  --ink-dim: #B7D7D7;
+  --teal: #00D3C6;
+  --ring: rgba(255, 255, 255, 0.12);
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  padding: 0 1.25rem clamp(6rem, 10vw, 10rem);
+  min-height: clamp(520px, 0vh, 820px);
+}
+/* ===== Fixed-width centered BG container you can shift vertically ===== */
+.bgImage{
+  position: absolute;
+  /* move the whole container UP with a negative value */
+  top: var(--glow-shift, -140px);   /* try -100 to -220 */
+  bottom: 0;                        /* stretch to the bottom so you don’t lose height */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1400px, 95vw);
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* The actual image */
+.bgImg{
+  object-fit: cover;
+  /* fine-tune the crop inside the container */
+  object-position: center var(--glow-crop-y, -20px); /* negative = bias to top */
+  width: 100%;
+  height: 100%;
+  filter: brightness(1.1);
+  opacity: .95;
+}
+
+/* Content spacing (reduce if the glow moves up a lot) */
+.inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: var(--hero-top-pad, 220px); /* was 260px */
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width:640px){
+  .inner{ padding-top: var(--hero-top-pad-mobile, 150px); }
+}
+.title {
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+    font-size: clamp(38px, 7vw, 80px);
+  line-height: 1.06;
+  letter-spacing: 0.2px;
+  text-shadow:
+    0 2px 18px rgba(255, 255, 255, 0.12),
+    0 0 40px rgba(0, 211, 198, 0.25);
+  margin: 0 0 1.2rem;
+
+}
+
+.subtitle {
+  font-size: clamp(16px, 2.2vw, 20px);
+  line-height: 1.55;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  color: #ffffff;
+  color: var(--ink-dim);
+  margin: 0 auto 2.2rem;
+  max-width: 760px;
+}
+
+/* ✅ CTAs */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 241px;
+
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid var(--ring);
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.ctaPrimary {
+  background: linear-gradient(180deg, #ffffff, #e9eef0);
+  color: #0b1220;
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.15), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.ctaPrimary:hover { 
+ 
+  color: #fff;
+  background: var(--teal);
+}
+
+.ctaGhost {
+  background: rgba(0, 211, 198, 0.08);
+  color: var(--ink);
+  border: 1px solid rgba(0, 211, 198, 0.35);
+  box-shadow: 0 8px 28px rgba(0, 211, 198, 0.15);
+}
+.ctaGhost:hover {
+    background: #fff;
+  color: var(--teal);
+  transform: translateY(-1px);
+}
+
+/* ✅ Mobile adjustment */
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 1rem 3rem; /* a bit tighter on sides if you want */
+  }
+
+  .inner {
+    padding-top: 160px; /* adjust as you like */
+  }
+
+@media (max-width: 640px) {
+  .cta {
+    width: 170px;            /* ↓ smaller button width */
+    padding: 0 12px;         /* ↓ tighter padding */
+    height: 46px;            /* ↓ smaller height */
+    font-size: 15px;         /* ↓ smaller font so both fit nicely */
+  }
+
+  .ctaRow {
+    gap: 10px;
+    justify-content: center;
+  }
+}
+}
+

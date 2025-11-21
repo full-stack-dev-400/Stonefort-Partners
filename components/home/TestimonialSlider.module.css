@@ -1,0 +1,121 @@
+/* ===== Testimonial Slider (fixed controls, sliding text) ===== */
+
+.section{
+  --bg:#000;
+  --ink:#ffffff;
+  --muted:#d5e0e0;
+  --teal:#00d3c6;
+  --ring:rgba(255,255,255,.28);
+
+  background:var(--bg);
+  color:var(--ink);
+  padding: 36px 16px 56px;
+}
+
+.container{
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Trustpilot (fixed) */
+.trust{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 14px;
+}
+.trustImg{ opacity:.95;   width: 360px;       
+  height: auto;}
+
+/* Viewport: only slides inside move */
+.viewport{
+  position:relative;
+  overflow:hidden;
+  /* lock height so layout doesn't jump between slides */
+  min-height: 88px; /* tune to match your tallest quote line-wrap */
+}
+
+.track{
+  display:flex;
+  width: 100%;
+  transition: transform .5s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
+.slide{
+  flex: 0 0 100%;
+  display:grid;
+  place-items:center;
+  padding: 0 8px;
+}
+
+.quote{
+  margin: 0;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  font-size: clamp(18px, 2.2vw, 24px);
+  color: #fff;
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 400;
+}
+.author{
+  color: var(--teal);
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  font-weight: 400;
+}
+
+/* Controls row (fixed, centered) */
+.controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.iconBtn{
+  width: 36px;
+  height: 36px;
+  display:grid;
+  place-items:center;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ring);
+  cursor: pointer;
+  transition: transform .15s ease, background-color .2s ease, border-color .2s ease;
+}
+.iconBtn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.45);
+}
+
+/* CTA (fixed) */
+.cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(0,211,198,.24);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.cta:hover{
+  transform: translateY(-1px);
+  font-weight: 500;
+  background: #fff;
+  color: #000;
+}
+
+/* Small screens */
+@media (max-width: 520px){
+  .controls{ gap: 12px; }
+  .iconBtn{ width: 32px; height: 32px; }
+  .cta{ height: 42px; padding: 0 18px; }
+}

@@ -1,0 +1,280 @@
+.wrapper {
+  background: #000;
+  color: #fff;
+  padding: 80px 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: start;
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+/* === Breadcrumb above both columns === */
+.breadcrumb {
+  grid-column: 1 / -1; /* span full width */
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.breadcrumb a {
+  color: #00d3c6;
+  text-decoration: none;
+}
+
+.title {
+  font-size: clamp(34px, 4vw, 80px);
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  text-shadow: 0px 0px 10px #00d3c6;
+  color: #fff;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* ===== Features ===== */
+.features {
+  list-style: none;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.features h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.features p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* ===== Right card ===== */
+.card {
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  width: 501px;
+  height: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 162px;
+  overflow: hidden;
+  border-radius: 30px 30px 0 0;
+}
+
+.bannerImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardBody {
+  padding: 20px 24px 28px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cardHeader h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #000;
+}
+
+/* Stats */
+.stats {
+  list-style: none;
+  font-size: 18px;
+  color: #000;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stats li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats li strong {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  margin-top: 24px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  flex: 1 1 0; /* equal width */
+  text-align: center;
+  white-space: nowrap;
+}
+
+.primaryBtn {
+  background: #00d3c6;
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primaryBtn:hover {
+  opacity: 0.9;
+  background: #fff;
+  color: #00d3c6;
+  border: 1px solid #00d3c6;
+}
+
+.secondaryBtn {
+  background: #fff;
+  border: 1px solid #00d3c6;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 20px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background: #00d3c6;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+  /* Switch grid to stacked flex */
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+  }
+
+  /* Order: breadcrumb -> card -> content */
+  .breadcrumb {
+    order: 0;
+    margin-top: 10px;
+  }
+
+  .card {
+    order: 1;
+    width: 100%;
+    height: auto;
+    background: #000;
+    margin-top: 0;
+  }
+
+  .content {
+    order: 2;
+  }
+
+  .cardBody {
+    padding: 18px 20px 24px;
+  }
+
+  .cardHeader h3 {
+    font-size: 22px;
+    line-height: 26px;
+    color: #fff;
+  }
+
+  .stats {
+    color: #fff;
+  }
+
+  .stats li {
+    color: #fff;
+  }
+
+  .primaryBtn {
+    background: #fff;
+    color: #000;
+  }
+
+  .secondaryBtn {
+    background: #000;
+    border: 1px solid #fff;
+    color: #fff;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .features p {
+    font-size: 14px; /* smaller text */
+  }
+
+  .card {
+    margin-top: 0;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+}

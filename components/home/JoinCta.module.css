@@ -1,0 +1,127 @@
+/* ===== Join CTA (with side ridges + gif logo) ===== */
+
+.section{
+  --bg:#000;
+  --ink:#ffffff;
+  --muted:#d6e3e3;
+  --teal:#00d3c6;
+  --ring:rgba(255,255,255,.22);
+
+  position: relative;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  padding: clamp(48px, 10vw, 120px) 16px;
+}
+
+.container{
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* side decorative ridges (SVGs in /public/images/) */
+.edgeLeft,
+.edgeRight{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(120px, 16vw);
+  pointer-events: none;
+  opacity: .9;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.edgeLeft{  left: 0;  background-image: url("/images/left.svg"); }
+.edgeRight{ right: 0; background-image: url("/images/right.svg"); }
+
+/* logo */
+.logoWrap{
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+.logo{
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0,211,198,.18));
+}
+
+/* heading (serif, large) */
+.heading{
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4.2vw, 55px);
+  line-height: 1.12;
+  letter-spacing: .2px;
+  margin: 0 0 10px;
+}
+
+/* paragraph (target ~20px) */
+.copy{
+  margin: 0 auto 22px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 400;;
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  color: #fff;
+  max-width: 70ch;
+}
+
+/* CTAs */
+.ctaRow{
+  display: flex;
+  justify-content: center;
+  
+  align-items: center;
+  
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 500;
+    font-size: clamp(14px, 1.6vw, 18px);
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: transform .15s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.btnPrimary{
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(255,255,255,.12);
+}
+.btnPrimary:hover{ 
+  transform: translateY(-1px);
+  background: #fff;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+
+.btnGhost{
+  background: #fff;
+  color: #000;
+  border-color: rgba(255,255,255,.6);
+}
+.btnGhost:hover{
+    background: var(--teal);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* small screens */
+@media (max-width: 560px){
+  .edgeLeft, .edgeRight{ width: 18vw; opacity: .85; }
+}

@@ -1,0 +1,114 @@
+/* ===== FAQ (dark, thin separators, + / – icon) ===== */
+
+.section{
+  --bg:#000;
+  --ink:#ffffff;
+  --muted:#cfd9d9;
+  --ring:rgba(255,255,255,.22);
+
+  background: var(--bg);
+  color: var(--ink);
+  padding: clamp(48px, 8vw, 96px) 16px;
+}
+
+.container{
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Heading — serif like your design */
+.heading{
+  font-family: "Cirka", ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.1;
+  font-size: clamp(28px, 4.2vw, 55px);
+  margin: 0 0 clamp(20px, 4vw, 32px);
+}
+
+/* List frame */
+.list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--ring);
+}
+
+/* Item with thin separators */
+.item{
+  border-bottom: 1px solid var(--ring);
+}
+
+/* Trigger row */
+.trigger{
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 8px;
+  cursor: pointer;
+}
+
+/* Question text */
+.question{
+  font-weight: 600;
+  letter-spacing: .2px;
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+}
+
+/* Plus / minus icon (pure CSS) */
+.icon{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  opacity: .9;
+}
+.icon::before,
+.icon::after{
+  content:"";
+  position:absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 2px;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform .2s ease, opacity .2s ease;
+}
+/* vertical bar (for +) */
+.icon::after{
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Panel (animated open/close using grid-rows trick) */
+.panel{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .28s ease;
+}
+.panelOpen{
+  grid-template-rows: 1fr;
+}
+.answerWrap{
+  overflow: hidden;
+}
+
+/* Answer text (content target ~20px) */
+.answer{
+  margin: 0 0 14px;
+  padding: 0 8px 8px;
+  color: var(--muted);
+  font-size: clamp(14px, 1.6vw, 16px);
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+    color: #ffffff;
+  line-height: 1.6;
+}
+
+/* When item is open, turn + into – */
+.open .icon::after{
+  opacity: 0;                   /* hide the vertical bar */
+}
