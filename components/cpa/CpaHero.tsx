@@ -79,7 +79,7 @@ export default function CpaAffiliate() {
         <div className={styles.card}>
           <div className={styles.cardImage}>
             <Image
-              src="/images/CpaHero.webp"
+              src="/images/cpahero.webp"
               alt="affiliate banner"
               fill
               className={styles.bannerImg}
